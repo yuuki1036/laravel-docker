@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\TweetController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('/tweets', TweetController::class)
+    ->names(
+      [
+      'index' => 'tweet.index',
+      'create' => 'tweet.create',
+      'store' => 'tweet.store',
+      ]
+    )
+    ->middleware(['auth']);
+
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
