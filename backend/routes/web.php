@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TweetController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,6 +15,16 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('/tweets', TweetController::class)
+    ->names(
+      [
+      'index' => 'tweet.index',
+      'create' => 'tweet.create',
+      'store' => 'tweet.store',
+      ]
+    )
+    ->middleware(['auth']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
