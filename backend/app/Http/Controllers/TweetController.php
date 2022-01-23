@@ -20,7 +20,7 @@ class TweetController extends Controller
     {
         //
         return Inertia::render('Index', [
-          'tweets' => Tweet::all(),
+          'tweets' => Tweet::latest('created_at')->get(),
           'canLogin' => Route::has('login'),
           'canRegister' => Route::has('register'),
           'laravelVersion' => Application::VERSION,
@@ -48,8 +48,12 @@ class TweetController extends Controller
     {
         $request->validate([
           'userId' => ['required'],
+          'userName' => ['required'],
           'content' => ['required'],
+          'type' => ['required'],
+          'replay' => ['required'],
           'likes' => ['required'],
+          'retweet' => ['required'],
         ]);
 
         Tweet::create($request->all());

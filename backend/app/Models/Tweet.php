@@ -18,4 +18,5 @@ class Tweet extends Model
         'likes',
         'retweet',
     ];
+
 }
