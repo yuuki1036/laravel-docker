@@ -15,8 +15,12 @@ class TweetFactory extends Factory
     {
         return [
             "userId"  => $this->faker->numberBetween(1, 100),
+            "userName" => $this->faker->userName(),
             "content" => $this->faker->realText(20),
-            "likes"   => $this->faker->numberBetween(0, 10),
+            "type" => "tweet",
+            "replay"   => 0,
+            "likes"   => 0,
+            "retweet"   => 0, 
         ];
     }
 }

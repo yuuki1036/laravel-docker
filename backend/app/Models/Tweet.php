@@ -11,7 +11,11 @@ class Tweet extends Model
 
     protected $fillable = [
         'userId',
+        'userName',
         'content',
+        'type',
+        'replay',
         'likes',
+        'retweet',
     ];
 }

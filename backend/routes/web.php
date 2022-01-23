@@ -22,18 +22,13 @@ Route::resource('/tweets', TweetController::class)
       'index' => 'tweet.index',
       'create' => 'tweet.create',
       'store' => 'tweet.store',
+
       ]
-    )
+      )
     ->middleware(['auth']);
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [TweetController::class, 'index'])
+    ->name('tweet.index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

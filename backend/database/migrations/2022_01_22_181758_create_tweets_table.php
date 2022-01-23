@@ -15,9 +15,13 @@ class CreateTweetsTable extends Migration
     {
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('userId');
-            $table->string('content');
-            $table->bigInteger('likes');
+            $table->integer('userId');
+            $table->string('userName', 20);
+            $table->string('content', 40);
+            $table->string('type', 10);
+            $table->integer('replay');
+            $table->integer('likes');
+            $table->integer('retweet');
             $table->timestamps();
         });
     }

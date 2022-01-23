@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTweetRequest;
 use App\Http\Requests\UpdateTweetRequest;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
 use App\Models\Tweet;
 use Inertia\Inertia;
 
@@ -17,7 +19,13 @@ class TweetController extends Controller
     public function index()
     {
         //
-        return Inertia::render('Tweet/Index', ['tweets' => Tweet::all()]);
+        return Inertia::render('Index', [
+          'tweets' => Tweet::all(),
+          'canLogin' => Route::has('login'),
+          'canRegister' => Route::has('register'),
+          'laravelVersion' => Application::VERSION,
+          'phpVersion' => PHP_VERSION,
+      ]);
     }
 
     /**
