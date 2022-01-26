@@ -1,0 +1,20 @@
+import React, { VFC } from "react";
+import Tweet from "./Tweet";
+
+type Props = {
+    tweets: any;
+};
+
+const TweetList: VFC<Props> = ({ tweets }) => {
+    return (
+        <div className="max-w-4xl divide-y-2 divide-slate-200 border-2 boder-slate-200">
+            {tweets.map((tweet: any) => (
+                <div key={tweet.id}>
+                    <Tweet tweet={tweet} />
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default TweetList;
