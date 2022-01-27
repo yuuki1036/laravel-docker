@@ -1,5 +1,6 @@
 import React, { VFC } from "react";
 import Tweet from "./Tweet";
+import InfinityScroll from "react-infinite-scroll-component";
 
 type Props = {
     tweets: any;

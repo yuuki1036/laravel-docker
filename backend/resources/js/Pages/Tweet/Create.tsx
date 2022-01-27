@@ -13,7 +13,7 @@ type Props = {
 
 const Create: VFC<Props> = ({ props }) => {
     const auth = props.auth;
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         userId: auth.user.id,
         userName: auth.user.name,
         content: "",

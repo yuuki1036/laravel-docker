@@ -1,8 +1,7 @@
-import React, { VFC } from "react";
+import React, { useState, VFC } from "react";
 import { format } from "date-fns";
 import { FaRetweet, FaRegComment } from "react-icons/fa";
-import { FcLikePlaceholder } from "react-icons/fc";
-import Avatar from "react-avatar";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import MyAvatar from "./Avatar";
 
 type Props = {
@@ -10,6 +9,16 @@ type Props = {
 };
 
 const Tweet: VFC<Props> = ({ tweet }) => {
+    const [isLiked, setIsLiked] = useState<boolean>(false);
+    const handleClick = (e: any) => {
+        e.preventDefault();
+        if (isLiked) {
+            tweet.likes -= 1;
+        } else {
+            tweet.likes += 1;
+        }
+        setIsLiked(!isLiked);
+    };
     return (
         <div className="flex p-2">
             <div className="mt-2 mr-4">
@@ -35,8 +44,13 @@ const Tweet: VFC<Props> = ({ tweet }) => {
                         <div className="mr-2">{<FaRetweet />}</div>
                         <div>{tweet.retweet}</div>
                     </div>
-                    <div className="flex items-center">
-                        <div className="mr-2">{<FcLikePlaceholder />}</div>
+                    <div
+                        className="flex items-center cursor-pointer"
+                        onClick={(e) => handleClick(e)}
+                    >
+                        <div className="mr-2">
+                            {isLiked ? <FcLike /> : <FcLikePlaceholder />}
+                        </div>
                         <div>{tweet.likes}</div>
                     </div>
                 </div>

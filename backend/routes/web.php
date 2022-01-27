@@ -22,16 +22,11 @@ Route::resource('/tweets', TweetController::class)
       'index' => 'tweet.index',
       'create' => 'tweet.create',
       'store' => 'tweet.store',
-
       ]
       )
     ->middleware(['auth']);
 
 Route::get('/', [TweetController::class, 'index'])
     ->name('tweet.index');
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

@@ -91,7 +91,7 @@ class TweetController extends Controller
      */
     public function update(UpdateTweetRequest $request, Tweet $tweet)
     {
-        //
+        var_dump($request);
     }
 
     /**
