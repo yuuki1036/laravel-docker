@@ -7,13 +7,21 @@ import ValidationErrors from "@/Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
 import route from "ziggy-js";
 
+type FormInput = {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+};
+
 const Register: VFC = () => {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-    });
+    const { data, setData, post, processing, errors, reset } =
+        useForm<FormInput>({
+            name: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+        });
 
     useEffect(() => {
         return () => {

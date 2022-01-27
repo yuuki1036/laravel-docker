@@ -13,12 +13,19 @@ type Props = {
     canResetPassword: boolean;
 };
 
+type FormInput = {
+    email: string;
+    password: string;
+    remember: string;
+};
+
 const Login: VFC<Props> = ({ status, canResetPassword }) => {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: "",
-        password: "",
-        remember: "",
-    });
+    const { data, setData, post, processing, errors, reset } =
+        useForm<FormInput>({
+            email: "",
+            password: "",
+            remember: "",
+        });
 
     useEffect(() => {
         return () => {
@@ -43,7 +50,7 @@ const Login: VFC<Props> = ({ status, canResetPassword }) => {
 
     return (
         <Guest>
-            <Head title="Log in" />
+            <Head title="ログイン" />
 
             {status && (
                 <div className="mb-4 font-medium text-sm text-green-600">

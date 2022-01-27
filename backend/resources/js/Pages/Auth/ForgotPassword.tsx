@@ -10,8 +10,12 @@ type Props = {
     status: string;
 };
 
+type FormInput = {
+    email: string;
+};
+
 const ForgotPassword: VFC<Props> = ({ status }) => {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors } = useForm<FormInput>({
         email: "",
     });
 
@@ -27,7 +31,7 @@ const ForgotPassword: VFC<Props> = ({ status }) => {
 
     return (
         <Guest>
-            <Head title="Forgot Password" />
+            <Head title="パスワード再発行" />
 
             <div className="mb-4 text-sm text-gray-500 leading-normal">
                 パスワードをお忘れですか？

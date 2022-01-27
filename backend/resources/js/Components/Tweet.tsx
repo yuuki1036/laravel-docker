@@ -1,16 +1,17 @@
-import React, { useState, VFC } from "react";
+import React, { SyntheticEvent, useState, VFC } from "react";
 import { format } from "date-fns";
 import { FaRetweet, FaRegComment } from "react-icons/fa";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import MyAvatar from "./Avatar";
+import { Tweet as TweetType } from "@/types/tweet";
 
 type Props = {
-    tweet: any;
+    tweet: TweetType;
 };
 
 const Tweet: VFC<Props> = ({ tweet }) => {
     const [isLiked, setIsLiked] = useState<boolean>(false);
-    const handleClick = (e: any) => {
+    const handleClick = (e: SyntheticEvent) => {
         e.preventDefault();
         if (isLiked) {
             tweet.likes -= 1;

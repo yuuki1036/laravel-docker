@@ -7,10 +7,15 @@ import ValidationErrors from "@/Components/ValidationErrors";
 import { Head, useForm } from "@inertiajs/inertia-react";
 import route from "ziggy-js";
 
+type FormInput = {
+    password: string;
+};
+
 const ConfirmPassword: VFC = () => {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        password: "",
-    });
+    const { data, setData, post, processing, errors, reset } =
+        useForm<FormInput>({
+            password: "",
+        });
 
     useEffect(() => {
         return () => {
@@ -54,7 +59,7 @@ const ConfirmPassword: VFC = () => {
 
                 <div className="flex items-center justify-end mt-4">
                     <Button className="ml-4" processing={processing}>
-                        Confirm
+                        確認
                     </Button>
                 </div>
             </form>

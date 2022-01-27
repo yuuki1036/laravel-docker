@@ -1,9 +1,10 @@
 import React, { VFC } from "react";
 import Tweet from "./Tweet";
 import InfinityScroll from "react-infinite-scroll-component";
+import { Tweet as TweetType } from "@/types/tweet";
 
 type Props = {
-    tweets: any;
+    tweets: TweetType[];
 };
 
 const TweetList: VFC<Props> = ({ tweets }) => {

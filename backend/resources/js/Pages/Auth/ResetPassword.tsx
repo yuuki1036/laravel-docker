@@ -12,13 +12,21 @@ type Props = {
     email: string;
 };
 
+type FormInput = {
+    token: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+};
+
 const ResetPassword: VFC<Props> = ({ token, email }) => {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        token: token,
-        email: email,
-        password: "",
-        password_confirmation: "",
-    });
+    const { data, setData, post, processing, errors, reset } =
+        useForm<FormInput>({
+            token: token,
+            email: email,
+            password: "",
+            password_confirmation: "",
+        });
 
     useEffect(() => {
         return () => {

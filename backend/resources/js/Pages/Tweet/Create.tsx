@@ -6,14 +6,16 @@ import Label from "@/Components/Label";
 import Input from "@/Components/Input";
 import GlobalNav from "@/Layouts/GlobalNav";
 import route from "ziggy-js";
+import { Auth } from "@/types/auth";
+import { SendTweet } from "@/types/tweet";
 
 type Props = {
-    auth: any;
+    auth: Auth;
 };
 
 const Create: VFC<Props> = ({ auth }) => {
     console.log(auth);
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors } = useForm<SendTweet>({
         userId: auth.user.id,
         userName: auth.user.name,
         content: "",
@@ -45,7 +47,7 @@ const Create: VFC<Props> = ({ auth }) => {
                                 <div>
                                     <Label
                                         forInput="content"
-                                        value="今なにしてる？"
+                                        value="ひとことお願いします。"
                                     />
 
                                     <Input

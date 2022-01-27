@@ -5,16 +5,17 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
 import route from "ziggy-js";
+import { AuthOrGuest } from "@/types/auth";
 
 type Props = {
-    auth: any;
+    auth: AuthOrGuest;
     header?: ReactNode;
     children: ReactNode;
 };
 
 const GlobalNav: VFC<Props> = ({ auth, header, children }) => {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
-        useState(false);
+        useState<boolean>(false);
 
     return (
         <div className="min-h-screen bg-gray-100">

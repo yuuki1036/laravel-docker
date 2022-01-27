@@ -4,10 +4,12 @@ import GlobalNav from "@/Layouts/GlobalNav";
 import TweetList from "@/Components/TweetList";
 import route from "ziggy-js";
 import Button from "@/Components/Button";
+import { Tweet } from "@/types/tweet";
+import { AuthOrGuest } from "@/types/auth";
 
 type Props = {
-    tweets: any;
-    auth: any;
+    tweets: Tweet[];
+    auth: AuthOrGuest;
 };
 
 const Index: VFC<Props> = ({ auth, tweets }) => {
