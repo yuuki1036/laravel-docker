@@ -8,11 +8,11 @@ import GlobalNav from "@/Layouts/GlobalNav";
 import route from "ziggy-js";
 
 type Props = {
-    props: any;
+    auth: any;
 };
 
-const Create: VFC<Props> = ({ props }) => {
-    const auth = props.auth;
+const Create: VFC<Props> = ({ auth }) => {
+    console.log(auth);
     const { data, setData, post, processing, errors } = useForm({
         userId: auth.user.id,
         userName: auth.user.name,
@@ -34,7 +34,7 @@ const Create: VFC<Props> = ({ props }) => {
     };
 
     return (
-        <GlobalNav auth={props.auth}>
+        <GlobalNav auth={auth}>
             <Head title="つぶやく" />
             <div className="py-12">
                 <div className="max-w-4xl mx-auto sm:px-6 lg:px-8">

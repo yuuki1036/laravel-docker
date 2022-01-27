@@ -753,17 +753,8 @@ select {
 .w-6 {
   width: 1.5rem;
 }
-.w-20 {
-  width: 5rem;
-}
 .w-40 {
   width: 10rem;
-}
-.w-24 {
-  width: 6rem;
-}
-.w-28 {
-  width: 7rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -776,12 +767,6 @@ select {
 }
 .max-w-7xl {
   max-width: 80rem;
-}
-.max-w-3xl {
-  max-width: 48rem;
-}
-.max-w-5xl {
-  max-width: 64rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -994,10 +979,6 @@ select {
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
 }
 .pt-8 {
   padding-top: 2rem;
@@ -1359,14 +1340,14 @@ select {
 }
 @media (min-width: 640px) {
 
-  .sm\:-my-px {
-    margin-top: -1px;
-    margin-bottom: -1px;
-  }
-
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .sm\:-my-px {
+    margin-top: -1px;
+    margin-bottom: -1px;
   }
 
   .sm\:ml-0 {
