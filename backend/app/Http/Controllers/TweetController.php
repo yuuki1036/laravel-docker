@@ -23,8 +23,6 @@ class TweetController extends Controller
           'tweets' => Tweet::latest('created_at')->get(),
           'canLogin' => Route::has('login'),
           'canRegister' => Route::has('register'),
-          'laravelVersion' => Application::VERSION,
-          'phpVersion' => PHP_VERSION,
       ]);
     }
 
