@@ -29,6 +29,7 @@ Route::resource('/tweets', TweetController::class)
 Route::get('/', [TweetController::class, 'index'])
     ->name('tweet.index');
 
-Route::fallback([TweetController::class, 'index']);
-
 require __DIR__.'/auth.php';
+
+// fallback
+Route::fallback([TweetController::class, 'index']);
